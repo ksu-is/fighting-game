@@ -7,6 +7,7 @@ class Player():
         self.health = 100
         self.name = name
         self.wins = 0
+        self.paralyze = False
 
     def calculate_damage(self, damage_amount, attacker):
         if (damage_amount > self.health):
@@ -62,13 +63,13 @@ def get_computer_selection(health):
         # Have the computer heal ~50% of its turns when <= 35
         result = random.randint(1, 6)
         if (result % 2 == 0):
-            return 3
+            return 4
         else:
-            return random.randint(1, 2)
+            return random.randint(1, 3)
     elif (health == 100):
-        return random.randint(1, 2)
-    else:
         return random.randint(1, 3)
+    else:
+        return random.randint(1, 4)
 
 
 def play_round(computer, human):
@@ -81,51 +82,67 @@ def play_round(computer, human):
             current_player = human
         else:
             current_player = computer
+        if (current_player.paralyze == False):
+            print()
+            print(
+                "You have {0} health remaining and the "
+                "computer has {1} health remaining."
+                .format(human.health, computer.health))
+            print()
 
-        print()
-        print(
-            "You have {0} health remaining and the "
-            "computer has {1} health remaining."
-            .format(human.health, computer.health))
-        print()
-
-        if (current_player == human):
-            print("Available attacks:")
-            print("1) Electrocute - Causes moderate damage.")
-            print("2) Wild Swing - high or low damage, "
-                  "depending on your luck!")
-            print("3) Nature's Kiss - Restores a moderate amount of health.")
-            move = get_selection()
-        else:
-            move = get_computer_selection(computer.health)
-
-        if (move == 1):
-            damage = random.randrange(18, 25)
             if (current_player == human):
-                computer.calculate_damage(damage, human.name.capitalize())
+                print("Available attacks:")
+                print("1) Electrocute - Causes moderate damage.")
+                print("2) Wild Swing - high or low damage, "
+                    "depending on your luck!")
+                print("3) Paralyzing Touch - Stuns with little damage (75% failure rate).")
+                print("4) Nature's Kiss - Restores a moderate amount of health.")
+                move = get_selection()
             else:
-                human.calculate_damage(damage, computer.name.capitalize())
-        elif (move == 2):
-            damage = random.randrange(10, 35)
-            if (current_player == human):
-                computer.calculate_damage(damage, human.name.capitalize())
+                move = get_computer_selection(computer.health)
+
+            if (move == 1):
+                damage = random.randrange(18, 25)
+                if (current_player == human):
+                    computer.calculate_damage(damage, human.name.capitalize())
+                else:
+                    human.calculate_damage(damage, computer.name.capitalize())
+            elif (move == 2):
+                damage = random.randrange(10, 35)
+                if (current_player == human):
+                    computer.calculate_damage(damage, human.name.capitalize())
+                else:
+                    human.calculate_damage(damage, computer.name.capitalize())
+            elif (move == 3):
+                chance = random.randrange(1,100)
+                if (chance > 75):
+                    damage = random.randrange(5, 15)
+                    if (current_player == human):
+                        computer.paralyze = True
+                        computer.calculate_damage(damage, human.name.capitalize())
+                    else:
+                        human.paralyze = True
+                        human.calculate_damage(damage, computer.name.capitalize())
+                else:
+                     print ("Attack failed. Turn lost.")
+            elif (move == 4):
+                heal = random.randrange(18, 25)
+                current_player.calculate_heal(heal)
             else:
-                human.calculate_damage(damage, computer.name.capitalize())
-        elif (move == 3):
-            heal = random.randrange(18, 25)
-            current_player.calculate_heal(heal)
+                print ("The input was not valid. Please select a choice again.")
+
+            if (human.health == 0):
+                print("Sorry, you lose!")
+                computer.wins += 1
+                game_in_progress = False
+
+            if (computer.health == 0):
+                print("Congratulations, you beat the computer!")
+                human.wins += 1
+                game_in_progress = False
         else:
-            print ("The input was not valid. Please select a choice again.")
-
-        if (human.health == 0):
-            print("Sorry, you lose!")
-            computer.wins += 1
-            game_in_progress = False
-
-        if (computer.health == 0):
-            print("Congratulations, you beat the computer!")
-            human.wins += 1
-            game_in_progress = False
+            current_player.paralyze = False
+            print(current_player.name + "is paralyzed and cannot attack!")
 
 
 def start_game():
