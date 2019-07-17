@@ -14,9 +14,9 @@
 - [x] Find related code repository
 - [x] Save repository and open in Github Desktop
 - [x] Clone repository into team 
-- [ ] Change names of attacks
-- [ ] Code additional attack(s)/heal(s)
-- [ ] Test additional attack(s)/heal(s)
+- [] Change names of attacks
+- [x] Code additional attack(s)/heal(s)
+- [x] Test additional attack(s)/heal(s)
 - [ ] Increase player limit if feasible
 - [ ] Revise code 
 - [ ] Create Powerpoint
