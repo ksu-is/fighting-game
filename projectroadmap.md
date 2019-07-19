@@ -7,9 +7,11 @@
 6. DONE- Find related code repository
 7. DONE- Save repository and open in Github Desktop
 8. DONE- Clone repository into team 
-9. Change names of attacks
-10. DONE- Code additional attack(s)/heal(s) that will 
-11. DONE- Test additional attack(s)/heal(s) to determine if they function. 
-12. Increase player limit if feasible
-13. Revise code to make sure everything functions correctly. 
-14. Create Powerpoint
+9. DONE- Create projectroadmap.md
+10. Change names of attacks
+11. DONE- Brainstorm new attack that will fit the style of the game. 
+12. DONE- Code new attack(s)/heal(s)
+13. DONE- Test additional attack(s)/heal(s) to determine if they function.
+14. Increase player limit if feasible
+15. Revise code to make sure everything functions correctly. 
+16. Create Powerpoint
