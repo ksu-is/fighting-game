@@ -1,5 +1,5 @@
 # Project Roadmap:
-- [x] Create GitHub account
+1.DONE- Create GitHub account
 - [x] Download GitHub Desktop
 - [x] Join ksu-is/is3020su19
 - [x] Create team in is3020su19
