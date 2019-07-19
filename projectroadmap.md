@@ -8,8 +8,8 @@
 7. DONE- Save repository and open in Github Desktop
 8. DONE- Clone repository into team 
 9. Change names of attacks
-10. DONE- Code additional attack(s)/heal(s)
-11. DONE- Test additional attack(s)/heal(s)
+10. DONE- Code additional attack(s)/heal(s) that will 
+11. DONE- Test additional attack(s)/heal(s) to determine if they function. 
 12. Increase player limit if feasible
-13. DONE- Revise code 
-14. DONE- Create Powerpoint
+13. Revise code to make sure everything functions correctly. 
+14. Create Powerpoint
