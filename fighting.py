@@ -1,3 +1,4 @@
+
 import random
 import time
 
@@ -92,11 +93,11 @@ def play_round(computer, human):
 
             if (current_player == human):
                 print("Available attacks:")
-                print("1) Electrocute - Causes moderate damage.")
-                print("2) Wild Swing - high or low damage, "
+                print("1) Piercing Strike - Causes moderate damage.")
+                print("2) Ferocious Swing - High or low damage, "
                     "depending on your luck!")
-                print("3) Paralyzing Touch - Stuns with little damage (75% failure rate).")
-                print("4) Nature's Kiss - Restores a moderate amount of health.")
+                print("3) Paralyzing Touch - Stuns opponent while applying a small amount of damage. Be careful, you can miss!")
+                print("4) Mead Chug - Restores a moderate amount of health.")
                 move = get_selection()
             else:
                 move = get_computer_selection(computer.health)
@@ -146,7 +147,7 @@ def play_round(computer, human):
 
 
 def start_game():
-    print("Welcome to the As-Yet-Unnamed turn-based battle game!")
+    print("Welcome to Chivalry is Lost: a turn-based fighting game!")
 
     computer = Player("Computer")
 
