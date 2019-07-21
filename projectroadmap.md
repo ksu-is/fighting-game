@@ -8,7 +8,7 @@
 7. DONE- Save repository and open in Github Desktop
 8. DONE- Clone repository into team 
 9. DONE- Create projectroadmap.md
-10. Change names of attacks
+10. DONE- Change names of attacks
 11. DONE- Brainstorm new attack that will fit the style of the game. 
 12. DONE- Code new attack(s)/heal(s)
 13. DONE- Test additional attack(s)/heal(s) to determine if they function.
