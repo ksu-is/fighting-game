@@ -1,7 +1,15 @@
-
+import sys
 import random
 import time
+from colorama import init
+init()
 
+class colors():
+    Red = "\u001b[31m"
+    Green = "\u001b[32m"
+    White = "\u001b[37m"
+    Blue = "\u001b[34m"
+    Yellow = "\u001b[33m"    
 
 class Player():
     def __init__(self, name):
@@ -23,7 +31,7 @@ class Player():
         else:
             self.health -= damage_amount
             print("{0} takes {1} damage from {2}!"
-                  .format(self.name.capitalize(), damage_amount, attacker))
+                  .format(self.name.capitalize(), colors.Red + str(damage_amount) + colors.White, attacker))
 
     def calculate_heal(self, heal_amount):
         if (heal_amount + self.health > 100):
@@ -86,9 +94,9 @@ def play_round(computer, human):
         if (current_player.paralyze == False):
             print()
             print(
-                "You have {0} health remaining and the "
-                "computer has {1} health remaining."
-                .format(human.health, computer.health))
+                "You have " + colors.Green + str(human.health) + colors.White + " health remaining and the "
+                "Computer has " + colors.Green + str(computer.health) + colors.White + " health remaining."
+                )
             print()
 
             if (current_player == human):
@@ -101,6 +109,7 @@ def play_round(computer, human):
                 move = get_selection()
             else:
                 move = get_computer_selection(computer.health)
+                print("Computer selected attack: " + str(move))
 
             if (move == 1):
                 damage = random.randrange(18, 25)
@@ -125,13 +134,16 @@ def play_round(computer, human):
                         human.paralyze = True
                         human.calculate_damage(damage, computer.name.capitalize())
                 else:
-                     print ("Attack failed. Turn lost.")
+                     print ("Attack " + colors.Yellow + "failed. " + colors.White +  "Turn lost.")
             elif (move == 4):
                 heal = random.randrange(18, 25)
                 current_player.calculate_heal(heal)
             else:
                 print ("The input was not valid. Please select a choice again.")
-
+                if (current_player == computer):
+                    current_player = human
+                else:
+                    current_player = computer
             if (human.health == 0):
                 print("Sorry, you lose!")
                 computer.wins += 1
@@ -143,7 +155,7 @@ def play_round(computer, human):
                 game_in_progress = False
         else:
             current_player.paralyze = False
-            print(current_player.name + "is paralyzed and cannot attack!")
+            print(current_player.name + " is " + colors.Blue + "paralyzed" + colors.White + " and cannot attack!")
 
 
 def start_game():
