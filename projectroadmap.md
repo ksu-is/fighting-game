@@ -12,6 +12,6 @@
 11. DONE- Brainstorm new attack that will fit the style of the game. 
 12. DONE- Code new attack(s)/heal(s)
 13. DONE- Test additional attack(s)/heal(s) to determine if they function.
-14. Increase player limit if feasible
-15. Revise code to make sure everything functions correctly. 
-16. Create Powerpoint
+14. DONE- Add color text to terminal so that the outputs are easier to understand. 
+15. DONE- Revise code to make sure everything functions correctly. 
+16. DONE- Create Powerpoint
